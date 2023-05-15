@@ -1,0 +1,12 @@
+.col-sm-2 {
+    width: 42%;
+}
+
+.col-sm-10 {
+    padding-left: 0px;
+    margin-left: 2px;
+}
+
+.form-control {
+    margin-left: 10px ;
+}
