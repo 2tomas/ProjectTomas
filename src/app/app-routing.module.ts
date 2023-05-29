@@ -6,7 +6,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
   {path: 'terminosYCondiciones', component: TerminosYCondicionesComponent},
-  {path: 'inicio', component: InicioComponent},
+  {path: '', component: InicioComponent},
   {path: '**', component:NotfoundComponent}
 ];
 

@@ -1,4 +1,4 @@
-<div class="modal" id="login">
+<div class="modal" id="login" *ngIf="this.loginFlag">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
@@ -12,7 +12,7 @@
       <div class="modal-body">
         <form>
           <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label" >usuario</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label" >Usuario</label>
             <div class="col-sm-10">
               <input type="email" class="form-control" id="inputEmail3" [(ngModel)]="this.usuario" name="usuario">
             </div>
@@ -33,14 +33,14 @@
               </div>
             </div>
           </div>
+          <div *ngIf="!this.flag">
+            <p id="textColor">El nombre de usuario o la contraseña que ingresó son incorrectos, inténtelo de nuevo.</p>
+          </div>
           <button type="submit" class="btn btn-primary" (click)="logear()">Sign in</button>
         </form>
       </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
+      
 
     </div>
   </div>

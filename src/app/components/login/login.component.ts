@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Usuario } from 'src/app/entidades/usuario';
 
 @Component({
@@ -9,23 +9,26 @@ import { Usuario } from 'src/app/entidades/usuario';
 export class LoginComponent {
   public usuario: string = "";
   public contrasena: string = "";
+  public flag: Boolean = true;
+  public loginFlag: Boolean = true;
   public jsonData: string | null  = "";
-  
 
-  public logear(): boolean {
+  
+  public logear() {
     this.jsonData = localStorage.getItem(this.usuario)??null; 
 
     if(this.jsonData != null){
       let getUsuario: Usuario = JSON.parse(this.jsonData);
       
       if(getUsuario.contrasena == this.contrasena && getUsuario.usuario == this.usuario){
-        return true;
+        this.flag = true;;
+        this.loginFlag= false;
       } else {
-        return false;
+        this.flag = false;
       }
 
     } else {
-      return false;
+      this.flag = false;
     }
   }
 
