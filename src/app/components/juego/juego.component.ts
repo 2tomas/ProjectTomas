@@ -8,5 +8,5 @@ import { Juego } from 'src/app/entidades/juego';
 })
 export class JuegoComponent {
   @Input('juegoChild')
-  public juego:Juego = new Juego;  
+  public juego:Juego = new Juego;
 }
