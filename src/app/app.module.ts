@@ -14,6 +14,7 @@ import { JuegosComponent } from './components/juegos/juegos.component';
 import { JuegoComponent } from './components/juego/juego.component';
 import { PrecioPipe } from './pipes/precio.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NombrePipe } from './pipes/nombre.pipe';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     JuegosComponent,
     JuegoComponent,
     PrecioPipe,
+    NombrePipe,
   ],
   imports: [
     BrowserModule,
