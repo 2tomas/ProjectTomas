@@ -10,6 +10,10 @@ import { NotfoundComponent } from './components/not-found/not-found.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { JuegosComponent } from './components/juegos/juegos.component';
+import { JuegoComponent } from './components/juego/juego.component';
+import { PrecioPipe } from './pipes/precio.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -20,13 +24,17 @@ import { HttpClientModule } from '@angular/common/http';
     TerminosYCondicionesComponent,
     NotfoundComponent,
     InicioComponent,
+    JuegosComponent,
+    JuegoComponent,
+    PrecioPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    NgbModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
