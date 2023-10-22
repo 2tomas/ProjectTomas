@@ -11,3 +11,23 @@
     margin: auto;
     width: 50%;
 }
+
+.icon-link {
+    position: fixed;
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    background-color: #007bff; /* Color de fondo del icono */
+    color: #fff; /* Color del icono */
+    width: 40px; /* Ancho del icono */
+    height: 40px; /* Altura del icono */
+    border-radius: 50%; /* Hace que el icono sea redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Elimina la subrayado del enlace */
+    transition: background-color 0.3s;
+  }
+  
+  .icon-link:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+  }
