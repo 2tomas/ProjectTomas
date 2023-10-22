@@ -1,10 +1,12 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild  } from '@angular/core';
 import { Firestore, collection, doc, getDocs } from '@angular/fire/firestore';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { format, parse } from 'date-fns';
 import es from 'date-fns/locale/es';
+import html2canvas from 'html2canvas';
 import {Chart, ChartConfiguration, ChartItem, registerables} from 'node_modules/chart.js'
 import { AuthService } from 'src/app/service/auth-service.service';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-estadisticas',
@@ -13,10 +15,11 @@ import { AuthService } from 'src/app/service/auth-service.service';
 })
 export class EstadisticasComponent {
   public listaJuegos: any[] = [];
-  
-
   private  labels: any[] = [];
   private  datos: any[] = [];
+
+  @ViewChild('chartContainer')
+  chartContainer!: ElementRef;
 
   constructor(public firestore: Firestore, public auth: AuthService) {
     this.auth.getAuth().subscribe(auth =>{
@@ -78,15 +81,37 @@ export class EstadisticasComponent {
       datasets: [{ label:'compras', data: this.datos}]
     };
 
+    const options = {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Resumen de los juegos comprado por el usuario'
+        }
+      }
+    }
+
     const config:ChartConfiguration  = {
-      type: 'pie',
-      data: data
+      type: 'bar',
+      data: data,
+      options: options
     }; 
 
     new Chart(chartItem, config);
   }
 
   public downloadPDF() {
-    const doc = new jsPDF ('1', 'pt', 'letter');
+    const chartContainer = this.chartContainer.nativeElement;
+
+    html2canvas(chartContainer, { scale: 2 }).then(canvas => {
+      const imageData = canvas.toDataURL('image/jpeg', 1.0);
+      const pdf = new jsPDF();
+
+      const width = pdf.internal.pageSize.getWidth();
+      const height = (canvas.height * width) / canvas.width;
+
+      pdf.addImage(imageData, 'JPEG', 0, 0, width, height);
+      pdf.save('chart.pdf');
+    });
   }
 }

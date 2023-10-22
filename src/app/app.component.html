@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="">
     <img src="../assets/images/icon.png" width="22" height="22" alt="Steam verde"> Steam verde
   </a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
@@ -10,11 +10,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#">Page 1</a>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="estadistica">Estadistica de tus compras</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="abmJuegos">Page 2</a>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="abmJuegos">Administracion de juegos</a>
       </li>
     </ul>
 

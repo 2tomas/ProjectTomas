@@ -13,10 +13,8 @@ import { AuthService } from 'src/app/service/auth-service.service';
 export class JuegoComponent {
   @Input('juegoChild')
   public juego:Juego = new Juego();
-
-  public juegos:Juego = new Juego();
-
   public usuario: any;
+  public compraExitosa = false;
 
   constructor(public firestore: Firestore, public auth: AuthService) {}
   
@@ -38,6 +36,7 @@ export class JuegoComponent {
 
         const postDocRef = doc(postsCollectionRef, juegoData.titulo.toString());
         setDoc(postDocRef, juegoData);
+        this.compraExitosa = true;
       }
     })    
   }

@@ -1,8 +1,9 @@
 <div class="chart-container">
     <button class="resumen-button" (click)="resumen()">Resumen</button>
-    <div class="chart">
+    <div #chartContainer class="chart" >
         <canvas id="myChart"></canvas>
         <canvas id="my-chart"> </canvas>
     </div>
+    <button class="resumen-button" (click)="downloadPDF()">Descargar pdf</button>
 </div>
 
