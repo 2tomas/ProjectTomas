@@ -1,0 +1,28 @@
+.chart-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.resumen-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.resumen-button:hover {
+    background-color: #45a049;
+}
+
+.chart {
+    margin-top: 20px;
+}
+
+#myChart {
+    width: 100%;
+    max-width: 800px; /* Establece un ancho máximo para el gráfico */
+    margin: 0 auto; /* Centra el gráfico horizontalmente */
+  }

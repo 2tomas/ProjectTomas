@@ -1,12 +1,37 @@
-.col-sm-2 {
-    width: 42%;
+#content-registrar {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.col-sm-10 {
-    padding-left: 0px;
-    margin-left: 2px;
+form label {
+    font-weight: bold;
 }
 
 .form-control {
-    margin-left: 10px ;
+    margin-bottom: 15px;
+}
+
+.btn-google {
+    background-color: #dd4b39;
+    color: white;
+    border: none;
+}
+
+.btn-google:hover {
+    background-color: #c53727;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c62837;
 }

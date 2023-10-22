@@ -1,0 +1,12 @@
+<input type="text" [(ngModel)]="valor">
+<input type="button" (click)="agregar()" value="enviar">
+
+<ul>
+    <li *ngFor="let item of item | async">
+      {{ item.Usuario }}
+    </li>
+
+    <li *ngFor="let men of item | async">
+        {{men.Usuario }} -> {{men.texto}} / {{ men.fecha }}
+    </li>
+</ul>

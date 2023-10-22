@@ -1,6 +1,26 @@
-#boton-login {
-    padding-left: 17.94335px;
-    padding-right: 17.94335px;
-    border-right-style: solid;
-    margin-right: 4px;
+/* Estilos para los elementos de usuario y enlaces de cierre de sesión */
+.user-info {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-info span {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.navbar-toggler {
+  color: #fff;
+}
+
+/* Estilos para los enlaces de cierre de sesión cuando se coloca el puntero sobre ellos */
+.navbar-nav .nav-link.logout-link:hover {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  padding: 4px 10px;
 }

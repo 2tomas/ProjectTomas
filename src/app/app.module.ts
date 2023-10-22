@@ -15,6 +15,13 @@ import { JuegoComponent } from './components/juego/juego.component';
 import { PrecioPipe } from './pipes/precio.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NombrePipe } from './pipes/nombre.pipe';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { MensajesComponent } from './components/mensajes/mensajes.component';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { JuegoAbmComponent } from './components/juego-abm/juego-abm.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 
 
 @NgModule({
@@ -29,6 +36,9 @@ import { NombrePipe } from './pipes/nombre.pipe';
     JuegoComponent,
     PrecioPipe,
     NombrePipe,
+    MensajesComponent,
+    JuegoAbmComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +46,28 @@ import { NombrePipe } from './pipes/nombre.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule 
+    NgbModule,
+    provideFirebaseApp(() => initializeApp({  
+      apiKey: "AIzaSyD4vaUupV7C8lUNEZzsBx_pYj0I-Gg-b-0",
+      authDomain: "asdadadasdasdsadasdasd.firebaseapp.com",
+      projectId: "asdadadasdasdsadasdasd",
+      storageBucket: "asdadadasdasdsadasdasd.appspot.com",
+      messagingSenderId: "121836293683",
+      appId: "1:121836293683:web:546a4ec387ede09638dd46",
+      measurementId: "G-0N2PHB13H3"
+   })),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: {  
+    apiKey: "AIzaSyD4vaUupV7C8lUNEZzsBx_pYj0I-Gg-b-0",
+    authDomain: "asdadadasdasdsadasdasd.firebaseapp.com",
+    projectId: "asdadadasdasdsadasdasd",
+    storageBucket: "asdadadasdasdsadasdasd.appspot.com",
+    messagingSenderId: "121836293683",
+    appId: "1:121836293683:web:546a4ec387ede09638dd46",
+    measurementId: "G-0N2PHB13H3"
+ } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

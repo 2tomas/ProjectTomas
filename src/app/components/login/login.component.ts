@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Usuario } from 'src/app/entidades/usuario';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider} from 'firebase/auth'
+import { AuthService } from 'src/app/service/auth-service.service';
+import { Firestore, doc, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-login',
@@ -8,26 +13,37 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  public usuario: string = "";
-  public contrasena: string = "";
-  public flag: Boolean = true;
-  public jsonData: string = "";
+  public email : string ='';
+  public password : string='';
 
-  public logear() {
-    this.jsonData = localStorage.getItem(this.usuario)??""; 
-    
-    try {
-      let getUsuario: Usuario = JSON.parse(this.jsonData);
+  constructor(public router : Router, public authService : AuthService, public firestore: Firestore) {
+  }
+  
+  loginGoogle() {
+    this.authService.loginGoogle();
+  }
 
-      if(getUsuario.contrasena == this.contrasena && getUsuario.usuario == this.usuario){
-        this.flag = true;
+  async login() {
+    const userDocRef = doc(this.firestore, 'Usuario', this.email);
+    const userDocSnap = await getDoc(userDocRef);
+
+    if (userDocSnap.exists()) {
+      const userData = userDocSnap.data();
+  
+      if (userData['contrasena'] === this.password) {
+        console.log('Login successful');
+        this.authService.login(this.email, this.password)
+        this.router.navigateByUrl("");
       } else {
-        this.flag = false;
+        console.log('Password is incorrect');
       }
-    } catch {
-      this.flag = false;
+    } else {
+      console.log('User not found');
     }
 
   }
 
+  public Cancelar(){
+    this.router.navigateByUrl("");
+  }
 }

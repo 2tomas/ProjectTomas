@@ -1,0 +1,66 @@
+<div class="table-container">
+    <table>
+        <tr>
+            <th>TITULO</th>
+            <th>DESCRIPCION</th>
+            <th>PRECIO</th>
+            <th>ACCION</th>
+        </tr>
+        <tr *ngFor="let juego of listaJuego">
+            <td>{{ juego.titulo | titulo}}</td>
+            <td>{{ juego.descripcion }}</td>
+            <td>{{ juego.precio | precio }}</td>
+            <td>
+                <button class="edit-button" (click)="botonEditarJuego(juego)">Editar</button>
+                <button class="delete-button" (click)="deleteUser(juego)">Borrar</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="button-container">
+    <button class="add-button" (click)="botonAgregarJuego()">Agregar Juego</button>
+</div>
+
+
+<section *ngIf="this.agregarflag">
+    <h2>Agregar Juego</h2>
+    <form (submit)="agregarJuego()">
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" [(ngModel)]="nuevoJuego.titulo">
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" [(ngModel)]="nuevoJuego.descripcion"></textarea>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" [(ngModel)]="nuevoJuego.precio">
+        </div>
+        <div>
+            <button type="submit">Agregar Juego</button>
+        </div>
+    </form>
+</section>
+
+<section *ngIf="this.editarFlag">
+    <h2>Editar Juego</h2>
+    <form (submit)="editarJuego()">
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" [(ngModel)]="this.nuevoJuego.titulo">
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" [(ngModel)]="this.nuevoJuego.descripcion"></textarea>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" [(ngModel)]="this.nuevoJuego.precio">
+        </div>
+        <div>
+            <button type="submit">Editar Juego</button>
+        </div>
+    </form>
+</section>

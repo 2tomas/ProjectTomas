@@ -1,8 +1,8 @@
-
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{this.juego.titulo | titulo}}</h5>
-      <p class="card-text">{{this.juego.descripcion}}</p>
-      <p class="card-text">{{this.juego.precio | precio}}</p>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.juego.titulo | titulo}}</h5>
+    <p class="card-text">{{this.juego.descripcion}}</p>
+    <p class="card-text">{{this.juego.precio | precio}}</p>
+    <button (click)="buyGame()" class="btn btn-primary">Comprar</button>
   </div>
+</div>
