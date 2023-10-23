@@ -21,6 +21,7 @@ export class LoginComponent {
   
   loginGoogle() {
     this.authService.loginGoogle();
+    this.router.navigateByUrl("");
   }
 
   async login() {

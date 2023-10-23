@@ -1,12 +1,13 @@
-<input type="text" [(ngModel)]="valor">
-<input type="button" (click)="agregar()" value="enviar">
-
-<ul>
-    <li *ngFor="let item of item | async">
-      {{ item.Usuario }}
+<div class="container">
+  <div class="form-container">
+    <input type="text" [(ngModel)]="valor" class="form-control" placeholder="Escribe tu mensaje">
+    <button (click)="agregar()" class="btn btn-primary">Enviar</button>
+  </div>
+  
+  <ul class="message-list">
+    <li *ngFor="let men of item | async" class="message-item">
+      <p class="user-name">{{ men.usuario }}</p>
+      <p class="message-text">{{ men.fecha }} - {{ men.mensaje }}</p>
     </li>
-
-    <li *ngFor="let men of item | async">
-        {{men.Usuario }} -> {{men.texto}} / {{ men.fecha }}
-    </li>
-</ul>
+  </ul>
+</div>

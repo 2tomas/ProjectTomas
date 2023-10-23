@@ -1,0 +1,32 @@
+.card {
+    width: 300px; /* Ancho deseado de la tarjeta */
+    margin: 10px; /* Espacio entre las tarjetas */
+    border: 1px solid #ccc; /* Borde de la tarjeta */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  .card-title {
+    font-size: 1.25rem; /* Tamaño del título */
+    margin-top: 10px; /* Espacio entre el título y el contenido */
+  }
+  
+  .precio {
+    font-weight: bold; /* Texto del precio en negrita */
+    color: #ff5722; /* Color de precio personalizado */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+  }
+
+  .descripcion {
+    max-height: 100px; /* Establece la altura máxima deseada */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el contenido se desborda */
+  }

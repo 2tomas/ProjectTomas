@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'terminosYCondiciones', component: TerminosYCondicionesComponent},
   {path: 'mensajes', component: MensajesComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'singup', component: SingUpComponent},
+  {path: 'signup', component: SingUpComponent},
   {path: 'abmJuegos', component: JuegoAbmComponent},
   {path: 'estadistica', component: EstadisticasComponent},
   {path: '', component: InicioComponent},
